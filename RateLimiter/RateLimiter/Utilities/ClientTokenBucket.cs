@@ -22,10 +22,8 @@ namespace RateLimiter.Utilities
 
         public bool ValidateClient(IPAddress address)
         {
-            Console.Write($"Validating {address}: ");
             if (tokenList.ContainsKey(address))
             {
-                Console.WriteLine($"Found {tokenList[address]} tokens");
                 bool valid = tokenList[address] > 0;
                 if (valid) 
                     tokenList[address]--;
@@ -33,7 +31,6 @@ namespace RateLimiter.Utilities
             }
             else
             {
-                Console.WriteLine("Not found. Added.");
                 tokenList.Add(address, 9);
                 return true;
             }
@@ -61,7 +58,7 @@ namespace RateLimiter.Utilities
 
         private void OnTimerExpired(object? sender, ElapsedEventArgs e)
         {
-            Console.Write($"Timer Expired at {DateTime.Now}. Clients: ");
+            //// Console.Write($"Timer Expired at {DateTime.Now}. Clients: ");
             foreach (var token in tokenList)
             {
                 Console.Write($"{token.Key} ");
