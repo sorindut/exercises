@@ -5,3 +5,5 @@
 /RateLimiter/.vs/RateLimiter
 /RateLimiter/RateLimiter/bin/Debug/net8.0
 /RateLimiter/RateLimiter/obj
+
+*.bin
