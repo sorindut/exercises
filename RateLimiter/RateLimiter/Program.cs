@@ -1,9 +1,10 @@
-using RateLimiter.Utilities;
+using RateLimiter.RateControllers;
+using RateLimiter.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<ClientTokenBucket>();
+builder.Services.AddSingleton<IRateController, ClientTokenBucket>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

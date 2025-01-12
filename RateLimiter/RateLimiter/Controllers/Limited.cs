@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RateLimiter.Utilities;
+using RateLimiter.Contracts;
+using RateLimiter.RateControllers;
 using System.Net;
 
 namespace RateLimiter.Controllers
 {
     public class Limited : Controller
     {
-        ClientTokenBucket bucket;
+        IRateController bucket;
 
-        public Limited(ClientTokenBucket bucket)
+        public Limited(IRateController bucket)
         {
             this.bucket = bucket;
         }

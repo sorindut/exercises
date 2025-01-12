@@ -1,9 +1,10 @@
 ﻿using System.Net;
 using System.Timers;
+using RateLimiter.Contracts;
 
-namespace RateLimiter.Utilities
+namespace RateLimiter.RateControllers
 {
-    public class ClientTokenBucket: IDisposable
+    public class ClientTokenBucket: IRateController, IDisposable
     {
         private const byte MaxTokens = 10;
 
